@@ -1,5 +1,16 @@
+
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+ {% block content %}
 
-{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+  {{form.task_item|as_crispy_field}}
+  <input type="submit" value="Submit" />
+</form>
 
+{% for task in tasks %}
+{{task.task_item}}
+<br>
+{% endfor %}
 {% endblock content %}
